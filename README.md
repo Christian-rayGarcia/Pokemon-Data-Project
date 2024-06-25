@@ -1,3 +1,5 @@
+**Pokemon Data Project**
+
 In our Pokemon data engineering project, we'll start by fetching relevant information from an external API using Python. Our goal is to extract specific details about each Pokemon, including its name, primary type, secondary type (if any), total stats, HP, attack, defense, special attack, special defense, speed, generation, and legendary status. Each of these attributes will be sourced from different API requests.
 
 Once we've gathered this data using Python scripts, we'll consolidate it into a CSV format. This CSV file will serve as our initial data source, capturing all the fetched attributes for further processing.
