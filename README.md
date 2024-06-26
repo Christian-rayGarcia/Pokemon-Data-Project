@@ -1,13 +1,7 @@
-In our Pokemon data engineering project, we'll start by fetching relevant information from an external API using Python. Our goal is to extract specific details about each Pokemon, including its name, primary type, secondary type (if any), total stats, HP, attack, defense, special attack, special defense, speed, generation, and legendary status. Each of these attributes will be sourced from different API requests.
+In our Pokemon data engineering project, we'll start by using Python to fetch information from an external API. We'll extract details such as name, types, stats, generation, and legendary status, and compile this data into a CSV file.
 
-Once we've gathered this data using Python scripts, we'll consolidate it into a CSV format. This CSV file will serve as our initial data source, capturing all the fetched attributes for further processing.
+Azure Data Factory will then move this CSV file to Azure Blob Storage for secure and scalable storage. Next, we'll use Azure Databricks with PySpark for data transformation, including cleaning and restructuring, to prepare it for analysis.
 
-Next, Azure Data Factory will be employed to manage the orchestration of this data pipeline. It will facilitate the movement of our CSV file, containing the comprehensive Pokemon dataset, into Azure Blob Storage. This step ensures that our raw data is securely stored in a scalable environment, ready for subsequent processing.
-
-For data transformation and analysis, we'll utilise Azure Databricks powered by PySpark. Here, the raw CSV data will undergo transformational processes. This includes tasks such as data cleaning, restructuring, and aggregating the information as needed. Our objective is to format the data optimally for analytics and querying purposes.
-
-Once transformed, the refined dataset will be integrated into Azure Synapse Analytics. Within this platform, we'll harness SQL queries to conduct in-depth analyses. This will involve exploring trends across generations, assessing statistical distributions, and examining the correlation between various Pokemon attributes. Our goal is to extract meaningful insights that can inform strategic decisions or provide valuable insights into the Pokemon universe.
-
-By following this structured approach—from API data extraction using Python to CSV generation, Azure Data Factory orchestration, Azure Databricks transformation, and Azure Synapse Analytics for in-depth analysis—we ensure a robust and scalable pipeline for handling Pokemon data. This pipeline not only supports ongoing analytics needs but also lays the foundation for potential dashboard creations or further advanced analytical applications.
+Finally, we'll load the refined dataset into Azure Synapse Analytics to perform in-depth analyses with SQL queries, exploring trends, statistical distributions, and attribute correlations. This structured approach ensures a robust pipeline for handling Pokemon data, supporting analytics and potential advanced applications.
 
 ![FlowDiagram](https://github.com/Christian-rayGarcia/Pokemon-Data-Project/assets/47110238/9efdc47e-f6f5-4edb-97c8-dd51778522fb)
