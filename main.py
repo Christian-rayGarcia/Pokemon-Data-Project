@@ -8,8 +8,6 @@ with requests.Session() as session:
 	response.raise_for_status()
 	total_pokemon = response.json()['count']
 
-	print(f"Total number of Pokémon: {total_pokemon}")
-
 	# Initialise a list to hold Pokémon data
 	pokemon_data = []
 
@@ -27,6 +25,7 @@ with requests.Session() as session:
 			pokemon_data.append([Index, Name, Type])
 		except requests.RequestException:
 			break
+	print("Extraction complete.")
 
 # Write all data to the CSV file at once
 with open("pokemon_base_info.csv", "w", newline='') as file:
