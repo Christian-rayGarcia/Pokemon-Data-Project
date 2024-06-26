@@ -1,34 +1,18 @@
-import requests
-import csv
+from data_extraction import DataExtraction
 
-# We use a session to reuse the underlying TCP connection
-with requests.Session() as session:
-	# Get the total count of Pokémon
-	response = session.get("https://pokeapi.co/api/v2/pokemon?limit=1")
-	response.raise_for_status()
-	total_pokemon = response.json()['count']
 
-	# Initialise a list to hold Pokémon data
-	pokemon_data = []
+def process_pokemon_base_data(pokemon_base_info):
+	pokemon_type = [result['type']['name'] for result in pokemon_base_info['types']]
+	return {
+		"Index": pokemon_base_info["id"],
+		"Name": pokemon_base_info["name"],
+		"Type": " ".join(pokemon_type)
+	}
 
-	for test in range(1, total_pokemon + 1):
-		try:
-			response = session.get(f"https://pokeapi.co/api/v2/pokemon/{test}")
-			response.raise_for_status()
-			pokemon_base_info = response.json()
 
-			pokemon_type = [result['type']['name'] for result in pokemon_base_info['types']]
-			Index = pokemon_base_info["id"]
-			Name = pokemon_base_info["name"]
-			Type = " ".join(pokemon_type)
+base_url = "https://pokeapi.co/api/v2/"
+endpoint = "pokemon"
+output_file = "pokemon_base_info.csv"
 
-			pokemon_data.append([Index, Name, Type])
-		except requests.RequestException:
-			break
-	print("Extraction complete.")
-
-# Write all data to the CSV file at once
-with open("pokemon_base_info.csv", "w", newline='') as file:
-	writer = csv.writer(file)
-	writer.writerow(["Index", "Name", "Type"])  # Write header
-	writer.writerows(pokemon_data)
+fetcher = DataExtraction(base_url, endpoint, process_pokemon_base_data, output_file)
+fetcher.get_data()

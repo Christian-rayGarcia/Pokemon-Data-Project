@@ -9,3 +9,5 @@ For data transformation and analysis, we'll utilise Azure Databricks powered by 
 Once transformed, the refined dataset will be integrated into Azure Synapse Analytics. Within this platform, we'll harness SQL queries to conduct in-depth analyses. This will involve exploring trends across generations, assessing statistical distributions, and examining the correlation between various Pokemon attributes. Our goal is to extract meaningful insights that can inform strategic decisions or provide valuable insights into the Pokemon universe.
 
 By following this structured approach—from API data extraction using Python to CSV generation, Azure Data Factory orchestration, Azure Databricks transformation, and Azure Synapse Analytics for in-depth analysis—we ensure a robust and scalable pipeline for handling Pokemon data. This pipeline not only supports ongoing analytics needs but also lays the foundation for potential dashboard creations or further advanced analytical applications.
+
+![FlowDiagram](https://github.com/Christian-rayGarcia/Pokemon-Data-Project/assets/47110238/9efdc47e-f6f5-4edb-97c8-dd51778522fb)
